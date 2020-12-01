@@ -16,15 +16,19 @@ public class Main extends PApplet {
 
     Window window;
     Controls controls;
-    Shape shape;
+    Shape boxShape, wrenchShape;
 
     @Override
     public void setup() {
         ProcessingElement.p = this;
 
-        shape = new Shape();
-        window = new Window(shape);
-        controls = new Controls(shape);
+        boxShape = new Shape("Box", "box.obj");
+        wrenchShape = new Shape("Wrench", "key.obj");
+        window = new Window(boxShape);
+        controls = new Controls(boxShape, window);
+
+        controls.addShape(boxShape);
+        controls.addShape(wrenchShape);
     }
 
     @Override

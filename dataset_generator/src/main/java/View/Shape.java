@@ -9,9 +9,11 @@ public class Shape extends ProcessingElement {
     public int scale = 10;
     public float[] pos = new float[3];
     public float[] rot = new float[3]; // todo: change to quaternions with float[4]
+    public String name;
 
-    public Shape() {
-        content = p.loadShape("box.obj");
+    public Shape(String name, String dir) {
+        this.name = name;
+        content = p.loadShape(dir);
         content.setFill(p.color(231, 111, 81));
     }
 
