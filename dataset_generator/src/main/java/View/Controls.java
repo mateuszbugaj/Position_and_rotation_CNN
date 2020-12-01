@@ -33,7 +33,7 @@ public class Controls extends ProcessingElement {
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
-                .addListener(i -> shape.setPosX(i.getValue()))
+                .addListener(i -> shape.setPosX((int)i.getValue()))
                 .setCaptionLabel("POS X");
 
         cp5.addSlider("posY")
@@ -46,7 +46,7 @@ public class Controls extends ProcessingElement {
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
-                .addListener(i -> shape.setPosY(i.getValue()))
+                .addListener(i -> shape.setPosY((int)i.getValue()))
                 .setCaptionLabel("POS Y");
 
         cp5.addSlider("posZ")
@@ -59,7 +59,7 @@ public class Controls extends ProcessingElement {
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
-                .addListener(i -> shape.setPosZ(i.getValue()))
+                .addListener(i -> shape.setPosZ((int)i.getValue()))
                 .setCaptionLabel("POS Z");
 
         cp5.addSlider("rotX")
@@ -72,7 +72,7 @@ public class Controls extends ProcessingElement {
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
-                .addListener(i -> shape.setRotX(i.getValue()))
+                .addListener(i -> shape.setRotX((int)i.getValue()))
                 .setCaptionLabel("ROT X");
 
         cp5.addSlider("rotY")
@@ -85,7 +85,7 @@ public class Controls extends ProcessingElement {
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
-                .addListener(i -> shape.setRotY(i.getValue()))
+                .addListener(i -> shape.setRotY((int)i.getValue()))
                 .setCaptionLabel("ROT Y");
 
         cp5.addSlider("rotZ")
@@ -98,7 +98,7 @@ public class Controls extends ProcessingElement {
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
-                .addListener(i -> shape.setRotZ(i.getValue()))
+                .addListener(i -> shape.setRotZ((int)i.getValue()))
                 .setCaptionLabel("ROT Z");
 
         cp5.addTextfield("numImages")

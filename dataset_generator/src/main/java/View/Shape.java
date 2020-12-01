@@ -7,8 +7,8 @@ import processing.core.PShape;
 public class Shape extends ProcessingElement {
     public PShape content;
     public int scale = 10;
-    public float[] pos = new float[3];
-    public float[] rot = new float[3]; // todo: change to quaternions with float[4]
+    public int[] pos = new int[3];
+    public int[] rot = new int[3]; // todo: change to quaternions with float[4]
     public String name;
 
     public Shape(String name, String dir) {
@@ -47,27 +47,27 @@ public class Shape extends ProcessingElement {
         rot[2] = (int) p.random(0, 90);
     }
 
-    public void setPosX(float value){
+    public void setPosX(int value){
         pos[0] = value;
     }
 
-    public void setPosY(float value){
+    public void setPosY(int value){
         pos[1] = value;
     }
 
-    public void setPosZ(float value){
+    public void setPosZ(int value){
         pos[2] = value;
     }
 
-    public void setRotX(float value){
+    public void setRotX(int value){
         rot[0] = value;
     }
 
-    public void setRotY(float value){
+    public void setRotY(int value){
         rot[1] = value;
     }
 
-    public void setRotZ(float value){
+    public void setRotZ(int value){
         rot[2] = value;
     }
 }
