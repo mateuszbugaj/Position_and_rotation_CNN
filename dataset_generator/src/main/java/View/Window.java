@@ -14,7 +14,7 @@ public class Window extends ProcessingElement {
     public Window(Shape shape) {
         this.shape = shape;
 
-        calculateBackground(0.005f);
+        calculateBackground(0);
     }
 
     @Override
@@ -24,9 +24,8 @@ public class Window extends ProcessingElement {
 
         p.noStroke();
         background.forEach((key, value) -> {
-            p.fill(value[0], value[1], value[2], 100);
+            p.fill(value[0], value[1], value[2], value[3]);
             p.rect(key.x, key.y, backRectSize, backRectSize);
-
         });
 
         p.translate(p.width/2f, p.height/2f);
@@ -50,7 +49,7 @@ public class Window extends ProcessingElement {
                 int n2 = (int) (PApplet.map(p.noise(perlinX + offset2 * noiseLvl, perlinY + offset2 * noiseLvl), 0, 1, 0, 255));
                 int n3 = (int) (PApplet.map(p.noise(perlinX + offset3 * noiseLvl, perlinY + offset3 * noiseLvl), 0, 1, 0, 255));
 
-                background.put(rectPos, new Integer[]{n1, n2, n3});
+                background.put(rectPos, new Integer[]{n1, n2, n3, (int)(noiseLvl*10000)});
             }
         }
     }

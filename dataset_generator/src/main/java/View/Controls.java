@@ -154,9 +154,9 @@ public class Controls extends ProcessingElement {
 
         cp5.addSlider("noise")
                 .setSize(150, 30)
-                .setNumberOfTickMarks(11)
+                .setNumberOfTickMarks(21)
                 .showTickMarks(false)
-                .setRange(0, 10)
+                .setRange(0, 20)
                 .setPosition(10, 10 + (10 + 30) * 10)
                 .setColorForeground(p.color(42, 157, 143))
                 .setColorActive(p.color(42, 157, 143))
