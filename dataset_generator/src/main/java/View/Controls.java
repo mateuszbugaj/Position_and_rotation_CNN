@@ -109,7 +109,8 @@ public class Controls extends ProcessingElement {
                 .setColorForeground(p.color(42, 157, 143))
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
-                .addListener(i -> setNumberOfImages((int) i.getValue()))
+                .addListener(i -> setNumberOfImages((int) Float.parseFloat(i.getStringValue())))
+                .setAutoClear(false)
                 .setCaptionLabel("");
 
         cp5.addLabel("NUM")
@@ -209,6 +210,7 @@ public class Controls extends ProcessingElement {
     }
 
     public void setNumberOfImages(int numberOfImages) {
+        System.out.println(numberOfImages);
         this.numberOfImages = numberOfImages;
     }
 
