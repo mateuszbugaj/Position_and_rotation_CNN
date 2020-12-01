@@ -9,6 +9,7 @@ public class Shape extends ProcessingElement {
     public int scale = 10;
     public int[] pos = new int[3];
     public int[] rot = new int[3]; // todo: change to quaternions with float[4]
+    public int[] bounding = new int[3];
     public String name;
 
     public Shape(String name, String dir) {
@@ -31,8 +32,8 @@ public class Shape extends ProcessingElement {
     }
 
     public void randomizePos(){
-        int z = (int) p.random(15, 30);
-        int upperBound = (int) PApplet.map(z, 15, 30, 25, 12);
+        int z = (int) p.random(20, 40);
+        int upperBound = (int) PApplet.map(z, 20, 40, 25, 12);
         int x = (int) p.random(-upperBound, upperBound);
         int y = (int) p.random(-upperBound, upperBound);
 
