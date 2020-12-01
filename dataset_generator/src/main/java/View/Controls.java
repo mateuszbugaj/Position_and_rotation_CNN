@@ -1,9 +1,11 @@
 package View;
 
+import Utils.Generator;
 import Utils.ProcessingElement;
 import controlP5.ControlP5;
 import controlP5.DropdownList;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +13,13 @@ public class Controls extends ProcessingElement {
     ControlP5 cp5;
     DropdownList dropdownList;
     List<Shape> shapes = new ArrayList<>();
+    int numberOfImages = 10;
+    String directory = "images/";
+    boolean randomRotation, randomPosition;
+    float noiseLevel;
 
-    public Controls(Shape shape, Window window) {
+    public Controls(Shape shape, Window window, Generator generator) {
+
         cp5 = new ControlP5(p);
         cp5.setFont(p.createFont("Arial", 18));
 
@@ -94,32 +101,31 @@ public class Controls extends ProcessingElement {
                 .addListener(i -> shape.setRotZ(i.getValue()))
                 .setCaptionLabel("ROT Z");
 
-        int defaultNumImages = 10;
-
         cp5.addTextfield("numImages")
                 .setPosition(10, 10 + (10 + 30) * 6)
                 .setSize(150, 30)
-                .setValue(defaultNumImages)
-                .setText(String.valueOf(defaultNumImages))
+                .setValue(numberOfImages)
+                .setText(String.valueOf(numberOfImages))
                 .setColorForeground(p.color(42, 157, 143))
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
+                .addListener(i -> setNumberOfImages((int) i.getValue()))
                 .setCaptionLabel("");
 
         cp5.addLabel("NUM")
                 .setColor(0)
                 .setPosition(10 + 150, 10 + (10 + 30) * 6);
 
-        String defaultDirectory = "/images";
-
         cp5.addTextfield("imgDir")
                 .setPosition(10, 10 + (10 + 30) * 7)
                 .setSize(150, 30)
-                .setValue(defaultDirectory)
-                .setText(defaultDirectory)
+                .setValue(directory)
+                .setText(directory)
                 .setColorForeground(p.color(42, 157, 143))
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
+                .addListener(i -> setDirectory(i.getStringValue()))
+                .setAutoClear(false)
                 .setCaptionLabel("");
 
         cp5.addLabel("DIRECTORY")
@@ -133,6 +139,7 @@ public class Controls extends ProcessingElement {
                 .setColorBackground(p.color(38, 70, 83))
                 .setLabel("")
                 .setSize(150, 30)
+                .addListener(i -> setRandomRotation((int) i.getValue() == 1))
                 .setState(true);
 
         cp5.addLabel("RANDOM ROTATION")
@@ -146,6 +153,7 @@ public class Controls extends ProcessingElement {
                 .setColorBackground(p.color(38, 70, 83))
                 .setLabel("")
                 .setSize(150, 30)
+                .addListener(i -> setRandomPosition((int) i.getValue() == 1))
                 .setState(true);
 
         cp5.addLabel("RANDOM POSITION")
@@ -162,7 +170,10 @@ public class Controls extends ProcessingElement {
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
-                .addListener(i -> window.calculateBackground(i.getValue()/1000))
+                .addListener(i -> {
+                    window.calculateBackground(i.getValue() / 1000);
+                    setNoiseLevel(i.getValue() / 1000);
+                })
                 .setCaptionLabel("NOISE LEVEL");
 
         cp5.addButton("Generate")
@@ -171,6 +182,13 @@ public class Controls extends ProcessingElement {
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
                 .setLabel("GENERATE")
+                .addListener(i -> {
+                    try {
+                        generator.generate(directory, numberOfImages, randomRotation, randomPosition, noiseLevel);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                })
                 .setSize(150, 30);
 
         dropdownList = cp5.addDropdownList("shapes")
@@ -185,13 +203,29 @@ public class Controls extends ProcessingElement {
 
     }
 
-    @Override
-    public void show() {
-
-    }
-
     public void addShape(Shape shape){
         shapes.add(shape);
         dropdownList.addItem(shape.name, dropdownList.getItems().size());
+    }
+
+    public void setNumberOfImages(int numberOfImages) {
+        this.numberOfImages = numberOfImages;
+    }
+
+    public void setDirectory(String directory) {
+        directory = directory.endsWith("/")?directory:directory.concat("/");
+        this.directory = directory;
+    }
+
+    public void setRandomRotation(boolean randomRotation) {
+        this.randomRotation = randomRotation;
+    }
+
+    public void setRandomPosition(boolean randomPosition) {
+        this.randomPosition = randomPosition;
+    }
+
+    public void setNoiseLevel(float noiseLevel) {
+        this.noiseLevel = noiseLevel;
     }
 }

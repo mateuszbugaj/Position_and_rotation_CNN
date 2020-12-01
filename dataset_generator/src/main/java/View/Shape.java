@@ -17,7 +17,6 @@ public class Shape extends ProcessingElement {
         content.setFill(p.color(231, 111, 81));
     }
 
-    @Override
     public void show() {
         p.translate(pos[0] * 10, pos[1] * 10, pos[2] * 10);
         p.pushMatrix();
@@ -29,6 +28,23 @@ public class Shape extends ProcessingElement {
         p.shape(content);
 
         p.popMatrix();
+    }
+
+    public void randomizePos(){
+        int z = (int) p.random(15, 30);
+        int upperBound = (int) PApplet.map(z, 15, 30, 25, 12);
+        int x = (int) p.random(-upperBound, upperBound);
+        int y = (int) p.random(-upperBound, upperBound);
+
+        pos[0] = x;
+        pos[1] = y;
+        pos[2] = z;
+    }
+
+    public void randomizeRot(){
+        rot[0] = (int) p.random(0, 90);
+        rot[1] = (int) p.random(0, 90);
+        rot[2] = (int) p.random(0, 90);
     }
 
     public void setPosX(float value){

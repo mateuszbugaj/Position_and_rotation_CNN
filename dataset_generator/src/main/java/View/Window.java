@@ -7,7 +7,7 @@ import processing.core.PVector;
 import java.util.HashMap;
 
 public class Window extends ProcessingElement {
-    Shape shape;
+    public Shape shape;
     HashMap<PVector, Integer[]> background = new HashMap<>();
     int backRectSize = 6;
 
@@ -17,8 +17,8 @@ public class Window extends ProcessingElement {
         calculateBackground(0);
     }
 
-    @Override
-    public void show(){
+    public void show(boolean generating){
+        p.background(233, 196, 106);
         p.lights();
         p.pushMatrix();
 

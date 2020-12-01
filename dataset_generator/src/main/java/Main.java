@@ -1,3 +1,4 @@
+import Utils.Generator;
 import Utils.ProcessingElement;
 import View.Controls;
 import View.Shape;
@@ -17,6 +18,7 @@ public class Main extends PApplet {
     Window window;
     Controls controls;
     Shape boxShape, wrenchShape;
+    Generator generator;
 
     @Override
     public void setup() {
@@ -25,7 +27,9 @@ public class Main extends PApplet {
         boxShape = new Shape("Box", "box.obj");
         wrenchShape = new Shape("Wrench", "key.obj");
         window = new Window(boxShape);
-        controls = new Controls(boxShape, window);
+        generator = new Generator(window);
+
+        controls = new Controls(boxShape, window, generator);
 
         controls.addShape(boxShape);
         controls.addShape(wrenchShape);
@@ -33,8 +37,6 @@ public class Main extends PApplet {
 
     @Override
     public void draw() {
-        background(233, 196, 106);
-        window.show();
-        controls.show();
+        window.show(false);
     }
 }
