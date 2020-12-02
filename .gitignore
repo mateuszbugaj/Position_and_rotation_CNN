@@ -1,2 +1,3 @@
 *.run
 .idea
+/dataset_generator/images/*

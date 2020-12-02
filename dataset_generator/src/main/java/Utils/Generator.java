@@ -25,9 +25,8 @@ public class Generator extends ProcessingElement{
                          float noiseLevel) throws IOException {
 
         String fileName = dir + "data.txt";
-
-
-        fileWriter = new FileWriter("images/data.txt");
+        // todo: Folder 'dir' must be created before this in order to create data.txt which is an issue
+        fileWriter = new FileWriter(fileName);
 
         System.out.println(
                         "##############################\n" +
