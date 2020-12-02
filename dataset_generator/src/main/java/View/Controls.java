@@ -210,7 +210,6 @@ public class Controls extends ProcessingElement {
     }
 
     public void setNumberOfImages(int numberOfImages) {
-        System.out.println(numberOfImages);
         this.numberOfImages = numberOfImages;
     }
 
