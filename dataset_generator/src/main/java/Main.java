@@ -26,10 +26,10 @@ public class Main extends PApplet {
 
         boxShape = new Shape("Box", "box.obj");
         wrenchShape = new Shape("Wrench", "key.obj");
-        window = new Window(boxShape);
+        window = new Window(wrenchShape);
         generator = new Generator(window);
 
-        controls = new Controls(boxShape, window, generator);
+        controls = new Controls(wrenchShape, window, generator);
 
         controls.addShape(boxShape);
         controls.addShape(wrenchShape);

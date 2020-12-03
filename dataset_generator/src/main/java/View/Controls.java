@@ -62,7 +62,7 @@ public class Controls extends ProcessingElement {
                 .addListener(i -> shape.setPosZ((int)i.getValue()))
                 .setCaptionLabel("POS Z");
 
-        cp5.addSlider("rotX")
+        cp5.addSlider("q0")
                 .setSize(150, 30)
                 .setNumberOfTickMarks(37)
                 .showTickMarks(false)
@@ -72,10 +72,10 @@ public class Controls extends ProcessingElement {
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
-                .addListener(i -> shape.setRotX((int)i.getValue()))
-                .setCaptionLabel("ROT X");
+                .addListener(i -> shape.setQ0(i.getValue()))
+                .setCaptionLabel("q0");
 
-        cp5.addSlider("rotY")
+        cp5.addSlider("q1")
                 .setSize(150, 30)
                 .setNumberOfTickMarks(37)
                 .showTickMarks(false)
@@ -85,10 +85,10 @@ public class Controls extends ProcessingElement {
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
-                .addListener(i -> shape.setRotY((int)i.getValue()))
-                .setCaptionLabel("ROT Y");
+                .addListener(i -> shape.setQ1(i.getValue()))
+                .setCaptionLabel("q1");
 
-        cp5.addSlider("rotZ")
+        cp5.addSlider("q2")
                 .setSize(150, 30)
                 .setNumberOfTickMarks(37)
                 .showTickMarks(false)
@@ -98,11 +98,24 @@ public class Controls extends ProcessingElement {
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
-                .addListener(i -> shape.setRotZ((int)i.getValue()))
-                .setCaptionLabel("ROT Z");
+                .addListener(i -> shape.setQ2(i.getValue()))
+                .setCaptionLabel("q2");
+
+        cp5.addSlider("q3")
+                .setSize(150, 30)
+                .setNumberOfTickMarks(37)
+                .showTickMarks(false)
+                .setRange(0, 360)
+                .setPosition(10, 10 + (10 + 30) * 6)
+                .setColorForeground(p.color(42, 157, 143))
+                .setColorActive(p.color(42, 157, 143))
+                .setColorBackground(p.color(38, 70, 83))
+                .setColorCaptionLabel(p.color(0))
+                .addListener(i -> shape.setQ3(i.getValue()))
+                .setCaptionLabel("q3");
 
         cp5.addTextfield("numImages")
-                .setPosition(10, 10 + (10 + 30) * 6)
+                .setPosition(10, 10 + (10 + 30) * 7)
                 .setSize(150, 30)
                 .setValue(numberOfImages)
                 .setText(String.valueOf(numberOfImages))
@@ -115,10 +128,10 @@ public class Controls extends ProcessingElement {
 
         cp5.addLabel("NUM")
                 .setColor(0)
-                .setPosition(10 + 150, 10 + (10 + 30) * 6);
+                .setPosition(10 + 150, 10 + (10 + 30) * 7);
 
         cp5.addTextfield("imgDir")
-                .setPosition(10, 10 + (10 + 30) * 7)
+                .setPosition(10, 10 + (10 + 30) * 8)
                 .setSize(150, 30)
                 .setValue(directory)
                 .setText(directory)
@@ -131,10 +144,10 @@ public class Controls extends ProcessingElement {
 
         cp5.addLabel("DIRECTORY")
                 .setColor(0)
-                .setPosition(10 + 150, 10 + (10 + 30) * 7);
+                .setPosition(10 + 150, 10 + (10 + 30) * 8);
 
         cp5.addToggle("RandRot")
-                .setPosition(10, 10 + (10 + 30) * 8)
+                .setPosition(10, 10 + (10 + 30) * 9)
                 .setColorForeground(p.color(42, 157, 143))
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
@@ -145,10 +158,10 @@ public class Controls extends ProcessingElement {
 
         cp5.addLabel("RANDOM ROTATION")
                 .setColor(0)
-                .setPosition(10 + 150, 10 + (10 + 30) * 8);
+                .setPosition(10 + 150, 10 + (10 + 30) * 9);
 
         cp5.addToggle("RandPos")
-                .setPosition(10, 10 + (10 + 30) * 9)
+                .setPosition(10, 10 + (10 + 30) * 10)
                 .setColorForeground(p.color(42, 157, 143))
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
@@ -159,14 +172,14 @@ public class Controls extends ProcessingElement {
 
         cp5.addLabel("RANDOM POSITION")
                 .setColor(0)
-                .setPosition(10 + 150, 10 + (10 + 30) * 9);
+                .setPosition(10 + 150, 10 + (10 + 30) * 10);
 
         cp5.addSlider("noise")
                 .setSize(150, 30)
                 .setNumberOfTickMarks(21)
                 .showTickMarks(false)
                 .setRange(0, 20)
-                .setPosition(10, 10 + (10 + 30) * 10)
+                .setPosition(10, 10 + (10 + 30) * 11)
                 .setColorForeground(p.color(42, 157, 143))
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
@@ -178,7 +191,7 @@ public class Controls extends ProcessingElement {
                 .setCaptionLabel("NOISE LEVEL");
 
         cp5.addButton("Generate")
-                .setPosition(10, 10 + (10 + 30) * 11)
+                .setPosition(10, 10 + (10 + 30) * 12)
                 .setColorForeground(p.color(42, 157, 143))
                 .setColorActive(p.color(42, 157, 143))
                 .setColorBackground(p.color(38, 70, 83))
@@ -193,7 +206,7 @@ public class Controls extends ProcessingElement {
                 .setSize(150, 30);
 
         dropdownList = cp5.addDropdownList("shapes")
-                .setPosition(10, 10 + (10 + 30) * 12)
+                .setPosition(10, 10 + (10 + 30) * 13)
                 .setWidth(150)
                 .setBarHeight(30)
                 .setItemHeight(30)
