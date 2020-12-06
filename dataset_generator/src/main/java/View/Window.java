@@ -32,15 +32,28 @@ public class Window extends ProcessingElement {
 
         p.background(233, 196, 106);
         p.noStroke();
-        background.forEach((key, value) -> {
-            p.fill(value[0], value[1], value[2], value[3]);
-            p.rect(key.x, key.y, backRectSize, backRectSize);
-        });
+
+
+        if(generating){
+            p.fill(200, 150, 120);
+            p.rect(0, p.random(300, 700), p.width, 800);
+
+            p.fill(200, 200, 60);
+            p.rect(p.random(0, 600), p.random(0, 600), 200, 300);
+
+            p.fill(200, 110, 180);
+            p.ellipse(p.random(800), p.random(800), p.random(200, 400), p.random(200, 400));
+        }
 
         p.pushMatrix();
         p.translate(p.width/2f, p.height/2f);
         shape.show();
         p.popMatrix();
+
+        background.forEach((key, value) -> {
+            p.fill(value[0], value[1], value[2], value[3]);
+            p.rect(key.x, key.y, backRectSize, backRectSize);
+        });
 
         if(!generating){
             p.noFill();
