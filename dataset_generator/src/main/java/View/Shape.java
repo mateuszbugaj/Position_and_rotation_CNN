@@ -8,7 +8,7 @@ public class Shape extends ProcessingElement {
     public PShape content;
     public int scale = 10;
     public int[] pos = new int[3];
-    public float[] q = new float[4];
+    public int[] rot = new int[3];
     public int[] bounding = new int[3];
     public String name;
 
@@ -19,25 +19,17 @@ public class Shape extends ProcessingElement {
     }
 
     public void show() {
-        p.translate(pos[0] * 10, pos[1] * 10, (pos[2] + 10) * 10);
+        p.translate(pos[0] * 10, pos[1] * 10, pos[2] * 10);
         p.pushMatrix();
-
-        // todo convert quaternion to euler angles
-//        p.rotateX(PApplet.radians(rot[0]));
-//        p.rotateY(PApplet.radians(rot[1]));
-//        p.rotateZ(PApplet.radians(rot[2]));
-
 
 //        p.applyMatrix(1 - 2*((float)Math.pow(q[2], 2) + (float)Math.pow(q[3], 2)), 2*(q[1] * q[2] - q[0] * q[3]), 2 * (q[0] * q[2] + q[1] * q[3]), 0,
 //                2 * (q[1] * q[2] + q[0] * q[3]), 1 - 2 * ((float)Math.pow(q[1], 2) + (float)Math.pow(q[3], 2)), 2 * (q[2] * q[3] - q[0] * q[1]), 0,
 //                2 * (q[1] * q[3] - q[0] * q[2]), 2 * (q[0] * q[1] + q[2] * q[3]), 1 - 2 * ((float)Math.pow(q[1], 2) + (float)Math.pow(q[2], 2)), 0,
 //                0, 0, 0, 1);
-        p.rotateX(PApplet.radians(q[0]));
-        p.rotateY(PApplet.radians(q[1]));
-        p.rotateZ(PApplet.radians(q[2]));
 
-//        p.printMatrix();
-
+        p.rotateX(PApplet.radians(rot[0]));
+        p.rotateY(PApplet.radians(rot[1]));
+        p.rotateZ(PApplet.radians(rot[2]));
         p.scale(10);
 
         p.shape(content);
@@ -47,7 +39,7 @@ public class Shape extends ProcessingElement {
 
     public void randomizePos(){
         int z = (int) p.random(20, 40);
-        int upperBound = (int) PApplet.map(z, 20, 40, 17, 6);
+        int upperBound = (int) PApplet.map(z, 20, 40, 25, 12);
         int x = (int) p.random(-upperBound, upperBound);
         int y = (int) p.random(-upperBound, upperBound);
 
@@ -57,17 +49,9 @@ public class Shape extends ProcessingElement {
     }
 
     public void randomizeRot(){
-        q[0] = (int) p.random(270, 360);
-        q[1] = (int) p.random(0, 360);
-//        q[2] = (int) p.random(0, 90);
-        q[2] = 0;
-//        q[3] = (int) p.random(0, 90);
-        q[3] = 0;
-
-//        q[0] = (int) p.random(0, 360);
-//        q[1] = (int) p.random(0, 360);
-//        q[2] = (int) p.random(0, 90);
-//        q[3] = (int) p.random(0, 90);
+        rot[0] = (int) p.random(0, 360);
+        rot[1] = (int) p.random(0, 360);
+        rot[2] = (int) p.random(0, 90);
     }
 
     public void setPosX(int value){
@@ -82,19 +66,15 @@ public class Shape extends ProcessingElement {
         pos[2] = value;
     }
 
-    public void setQ0(float value){
-        q[0] = value;
+    public void setRotX(int value){
+        rot[0] = value;
     }
 
-    public void setQ1(float value){
-        q[1] = value;
+    public void setRotY(int value){
+        rot[1] = value;
     }
 
-    public void setQ2(float value){
-        q[2] = value;
-    }
-
-    public void setQ3(float value){
-        q[3] = value;
+    public void setRotZ(int value){
+        rot[2] = value;
     }
 }

@@ -6,7 +6,6 @@ import processing.core.PConstants;
 import processing.core.PImage;
 import processing.core.PVector;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Window extends ProcessingElement {
@@ -43,6 +42,15 @@ public class Window extends ProcessingElement {
 
             p.fill(200, 110, 180);
             p.ellipse(p.random(800), p.random(800), p.random(200, 400), p.random(200, 400));
+        } else {
+            p.fill(200, 150, 120);
+            p.rect(0, 400, p.width, 800);
+
+            p.fill(200, 200, 60);
+            p.rect(600, 200, 200, 300);
+
+            p.fill(200, 110, 180);
+            p.ellipse(100, 100, 400, 400);
         }
 
         p.pushMatrix();
