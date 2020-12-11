@@ -7,8 +7,8 @@ public class ShapeJSON {
     public int posX;
     public int posY;
     public int posZ;
-//    public float rotX;
-//    public float rotY;
+    public float rotX;
+    public float rotY;
     public float rx, gx, bxx;
     public float ry, gy, byy;
     public int bx;
@@ -22,8 +22,8 @@ public class ShapeJSON {
         posY = shape.pos[1];
         posZ = shape.pos[2];
 
-//        rotX = shape.rot[0];
-//        rotY = shape.rot[1];
+        rotX = shape.rot[0];
+        rotY = shape.rot[1];
         float[] rgbX = AngleConverter.getRGB(shape.rot[0]);
         float[] rgbY = AngleConverter.getRGB(shape.rot[1]);
 

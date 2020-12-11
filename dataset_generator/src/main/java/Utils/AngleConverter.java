@@ -6,6 +6,10 @@ import static processing.core.PApplet.*;
 
 public class AngleConverter {
     public static float[] getRGB(float angle){
+        if(angle < 0){
+            angle += 360;
+        }
+
         float[] RGBResult;
         float S = 1; // saturation 0-1
         float V = 1; // value 0-1
@@ -57,7 +61,7 @@ public class AngleConverter {
         float BPrim = rgb[2]/255;
 
         float angle = PApplet.atan2(sqrt(3) * (GPrim - BPrim), 2 * RPrim - GPrim - BPrim);
-        angle = (degrees(angle) < 0) ? (degrees(angle) + 360):degrees(angle);
+//        angle = (degrees(angle) < 0) ? (degrees(angle) + 360):degrees(angle);
 
         return angle;
     }
