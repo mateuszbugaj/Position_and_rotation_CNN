@@ -49,9 +49,11 @@ public class Shape extends ProcessingElement {
     }
 
     public void randomizeRot(){
-        rot[0] = (int) p.random(180);
+//        rot[0] = (int) p.random(180);
+        rot[0] = 120;
         rot[1] = (int) p.random(0, 360);
 //        rot[2] = (int) p.random(0, 90);
+        rot[2] = 0;
     }
 
     public void setPosX(int value){
