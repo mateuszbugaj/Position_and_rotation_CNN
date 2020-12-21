@@ -34,23 +34,29 @@ public class Window extends ProcessingElement {
 
 
         if(generating){
+            p.pushMatrix();
+            p.translate(0, 0 ,-50);
             p.fill(200, 150, 120);
-            p.rect(0, p.random(300, 700), p.width, 800);
+            p.rect(-100, p.random(300, 700), 1000, 1000, -100);
 
             p.fill(200, 200, 60);
             p.rect(p.random(0, 600), p.random(0, 600), 200, 300);
 
             p.fill(200, 110, 180);
             p.ellipse(p.random(800), p.random(800), p.random(200, 400), p.random(200, 400));
+            p.popMatrix();
         } else {
+            p.pushMatrix();
+            p.translate(0, 0 ,-50);
             p.fill(200, 150, 120);
-            p.rect(0, 400, p.width, 800);
+            p.rect(-100, 400, 1000, 1000);
 
             p.fill(200, 200, 60);
             p.rect(600, 200, 200, 300);
 
             p.fill(200, 110, 180);
             p.ellipse(100, 100, 400, 400);
+            p.popMatrix();
         }
 
         p.pushMatrix();

@@ -38,8 +38,13 @@ public class Shape extends ProcessingElement {
     }
 
     public void randomizePos(){
-        int z = (int) p.random(20, 40);
-        int upperBound = (int) PApplet.map(z, 20, 40, 25, 12);
+//        int z = (int) p.random(20, 40);
+//        int upperBound = (int) PApplet.map(z, 20, 40, 25, 12);
+//        int x = (int) p.random(-upperBound, upperBound);
+//        int y = (int) p.random(-upperBound, upperBound);
+
+        int z = (int) p.random(0, 40);
+        int upperBound = (int) PApplet.map(z, 0, 40, 35, 12);
         int x = (int) p.random(-upperBound, upperBound);
         int y = (int) p.random(-upperBound, upperBound);
 
