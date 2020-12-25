@@ -55,6 +55,7 @@ public class AngleConverter {
         return RGBResult;
     }
 
+
     public static float getAngle(float[] rgb){
         float RPrim = rgb[0]/255;
         float GPrim = rgb[1]/255;
