@@ -22,11 +22,6 @@ public class Shape extends ProcessingElement {
         p.translate(pos[0] * 10, pos[1] * 10, pos[2] * 10);
         p.pushMatrix();
 
-//        p.applyMatrix(1 - 2*((float)Math.pow(q[2], 2) + (float)Math.pow(q[3], 2)), 2*(q[1] * q[2] - q[0] * q[3]), 2 * (q[0] * q[2] + q[1] * q[3]), 0,
-//                2 * (q[1] * q[2] + q[0] * q[3]), 1 - 2 * ((float)Math.pow(q[1], 2) + (float)Math.pow(q[3], 2)), 2 * (q[2] * q[3] - q[0] * q[1]), 0,
-//                2 * (q[1] * q[3] - q[0] * q[2]), 2 * (q[0] * q[1] + q[2] * q[3]), 1 - 2 * ((float)Math.pow(q[1], 2) + (float)Math.pow(q[2], 2)), 0,
-//                0, 0, 0, 1);
-
         p.rotateX(PApplet.radians(rot[0]));
         p.rotateY(PApplet.radians(rot[1]));
         p.rotateZ(PApplet.radians(rot[2]));

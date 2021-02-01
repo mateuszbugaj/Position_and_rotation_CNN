@@ -49,7 +49,7 @@ public class Generator extends ProcessingElement{
             }
 
             window.calculateBackground(noiseLevel);
-            window.show(true);
+            window.show(true, true);
 
             PImage frame = p.get();
             String frameName = dir + imageNumber + ".jpg";

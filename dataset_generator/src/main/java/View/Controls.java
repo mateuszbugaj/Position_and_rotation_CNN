@@ -60,7 +60,8 @@ public class Controls extends ProcessingElement {
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
                 .addListener(i -> shape.setPosZ((int)i.getValue()))
-                .setCaptionLabel("POS Z");
+                .setCaptionLabel("POS Z")
+                .setValue(40);
 
         cp5.addSlider("rotX")
                 .setSize(150, 30)
@@ -73,7 +74,8 @@ public class Controls extends ProcessingElement {
                 .setColorBackground(p.color(38, 70, 83))
                 .setColorCaptionLabel(p.color(0))
                 .addListener(i -> shape.setRotX((int)i.getValue()))
-                .setCaptionLabel("ROT X");
+                .setCaptionLabel("ROT X")
+                .setValue(120);
 
         cp5.addSlider("rotY")
                 .setSize(150, 30)
@@ -228,5 +230,13 @@ public class Controls extends ProcessingElement {
 
     public void setNoiseLevel(float noiseLevel) {
         this.noiseLevel = noiseLevel;
+    }
+
+    public void hide(){
+        this.cp5.hide();
+    }
+
+    public void show(){
+        this.cp5.show();
     }
 }

@@ -19,7 +19,7 @@ public class Window extends ProcessingElement {
         calculateBackground(0);
     }
 
-    public void show(boolean generating){
+    public void show(boolean generating, boolean showFrame){
         p.lights();
 
         p.background(255);
@@ -69,7 +69,7 @@ public class Window extends ProcessingElement {
             p.rect(key.x, key.y, backRectSize, backRectSize);
         });
 
-        if(!generating){
+        if(showFrame){
             p.noFill();
             p.strokeWeight(5);
             p.stroke(255, 0, 0);
