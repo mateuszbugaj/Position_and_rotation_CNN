@@ -20,7 +20,7 @@ Project includes:
 <br><br>
 ![predictor](https://imgur.com/MLN60T7.jpg)
 
-- [Original paper](Object_detection_and_position_estimation)
+- [Original paper](Object_detection_and_position_estimation.pdf)
 
 - [Trained model in .h5 file format](predictor)
 
